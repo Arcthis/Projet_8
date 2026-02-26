@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  db_8:
+    container_name: mongodb_8_container
+    image: mongo
+    restart: always
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: a1B2c3D4e5
+    ports:
+      - "27018:27017"
+    networks:
+      mongodb_8_network:
+        ipv4_address: 172.35.0.8
+
+  python_8_app:
+    container_name: python_import_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db_8:
+        condition: service_healthy
+    networks:
+      mongodb_8_network:
+        ipv4_address: 172.35.0.9
+    volumes:
+      - ./scripts:/scripts
+      - ./json:/json
+
+networks:
+  mongodb_8_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.35.0.0/24

@@ -1,0 +1,38 @@
+[
+  {
+    "station_id":"IICHTE19",
+    "station_name":"WeerstationBS",
+    "latitude":51.092,
+    "longitude":2.999
+  },
+  {
+    "station_id":"ILAMAD25",
+    "station_name":"La Madeleine",
+    "latitude":50.659,
+    "longitude":3.07
+  },
+  {
+    "station_id":"07015",
+    "station_name":"Lille-Lesquin",
+    "latitude":50.575,
+    "longitude":3.092
+  },
+  {
+    "station_id":"00052",
+    "station_name":"Armentières",
+    "latitude":50.689,
+    "longitude":2.877
+  },
+  {
+    "station_id":"000R5",
+    "station_name":"Bergues",
+    "latitude":50.968,
+    "longitude":2.441
+  },
+  {
+    "station_id":"STATIC0010",
+    "station_name":"Hazebrouck",
+    "latitude":50.734,
+    "longitude":2.545
+  }
+]
